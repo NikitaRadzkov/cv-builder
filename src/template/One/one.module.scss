@@ -1,0 +1,31 @@
+@import '../../theme/colors';
+
+.insideCon {
+    padding: 60px;
+}
+
+.box {
+    margin: 17px 0;
+}
+
+.name {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.position {
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.image {
+    position: absolute;
+    right: 60px;
+    top: 55px;
+}
