@@ -6,7 +6,6 @@
 export default {
     // The URL we're connecting to
     hostname: 'http://localhost:3000',
-    // hostname: 'https://api.wtfresume.com',
     imgurHostname: 'https://api.imgur.com/3/image',
 
     endpoints: [

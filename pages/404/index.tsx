@@ -10,7 +10,7 @@ export default function Custom404() {
     return (
         <div className={styles.errPage}>
             <Head>
-                <title>404 Not Found | wtfresume</title>
+                <title>404 Not Found</title>
             </Head>
             <HeaderNavbar />
 

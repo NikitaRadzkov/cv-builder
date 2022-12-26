@@ -32,7 +32,7 @@ class Home extends React.Component<TProps> {
         return (
             <>
                 <Head>
-                    <title>resume builder | wtfresume</title>
+                    <title>resume builder</title>
                 </Head>
                 <div style={{ fontFamily: this.props.theme.fontFamily }}>
                     <div className={styles.loading} style={{ background: this.props.theme.color }}>

@@ -220,7 +220,7 @@ class Home extends React.Component<TProps, TState> {
                 <nav className={styles.nav}>
                     <div className={styles.insideNav}>
                         <div className={styles.navLeft}>
-                            <img src="/images/logo1.png" alt="wtfresume logo (resume builder)" />
+                            <img src="/images/logo1.png" alt="logo (resume builder)" />
                         </div>
                         <div className={styles.navRight}>
                             <div className={styles.navItem}>

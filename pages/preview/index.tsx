@@ -75,7 +75,7 @@ class Home extends React.Component<TProps, TState> {
         return (
             <>
                 <Head>
-                    <title>preview | wtfresume</title>
+                    <title>preview</title>
                 </Head>
                 <div style={{ fontFamily: this.props.theme.fontFamily }}>
                     {this.state.exportStatus !== 'true' && (
