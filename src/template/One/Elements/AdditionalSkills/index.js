@@ -4,25 +4,25 @@ import { useDispatch } from 'react-redux';
 import { Toast, Util } from '@lib';
 import { Text, Dnd } from '@component';
 
-import { addEducation, updateEducation, deleteEducationData } from '../../../../redux/core/actions';
+import { addAdditionalSkill, updateAdditionalSkill, deleteAdditionalSkill } from '../../../../redux/core/actions';
 
-import styles from './education.module.scss';
+import styles from './additional-skills.module.scss';
 
-function Education(props) {
+function AdditionalSkills(props) {
     const dispatch = useDispatch();
 
     const _updateEducation = (data) => {
         const storeReorder = Util.mapOrder(props.data, data, 'id');
-        dispatch(updateEducation(storeReorder));
+        dispatch(updateAdditionalSkill(storeReorder));
     };
 
     const _addNewItem = () => {
-        dispatch(addEducation());
+        dispatch(addAdditionalSkill());
     };
 
     const _removeItem = (id, data) => {
-        Toast.showUndo(id, data, 'education', 'Education Item Removed');
-        dispatch(deleteEducationData(id));
+        Toast.showUndo(id, data, 'education', 'Additional Skill Item Removed');
+        dispatch(deleteAdditionalSkill(id));
     };
 
     const { data } = props;
@@ -38,14 +38,16 @@ function Education(props) {
                         value={item.title}
                         statename="education.title"
                         stateid={item.id}
-                        placeholder="BSc. Software Engineering Harvard"
+                        customclass={styles.title}
+                        placeholder="Additional Skills Title"
+                        tag="div"
                     />
                     <Text
                         value={item.date}
                         statename="education.date"
                         stateid={item.id}
                         customclass={styles.educationExplain}
-                        placeholder="2010 - 2014"
+                        placeholder="your additional skills..."
                     />
                 </div>
             )}
@@ -54,4 +56,4 @@ function Education(props) {
 }
 
 /* Export Component =============================== */
-export default Education;
+export default AdditionalSkills;
