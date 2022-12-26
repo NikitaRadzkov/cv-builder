@@ -45,7 +45,7 @@ const Util = {
     editable: () => {
         const pageName = window.location.pathname.replace('/', '');
 
-        if (pageName === 'resume-builder') {
+        if (pageName === '') {
             return true;
         }
         return false;
