@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-import { HeaderNavbar, Footer } from '@component';
+import { HeaderNavbar } from '@component';
 
 import styles from './style.module.scss';
 
@@ -133,8 +133,6 @@ export default function Home() {
                     </div>
                 </section>
             </div>
-
-            <Footer />
         </div>
     );
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
 
-import { HeaderNavbar, Footer } from '@component';
+import { HeaderNavbar } from '@component';
 
 import styles from './style.module.scss';
 
@@ -22,8 +22,6 @@ export default function Custom404() {
                     </Link>
                 </div>
             </div>
-
-            <Footer />
         </div>
     );
 }

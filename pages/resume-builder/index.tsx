@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 // import { Text } from '@component';
 
 import styles from './style.module.scss';
-import { TopNavbar, Footer } from '@component';
+import { TopNavbar } from '@component';
 import { One } from '@template';
 // import { Text, TopNavbar, WorkExperience, Education, Skills } from '@component';
 import Head from 'next/head';
@@ -45,7 +45,6 @@ class Home extends React.Component<TProps> {
                         <One />
                     </div>
                 </div>
-                <Footer />
             </>
         );
     }
