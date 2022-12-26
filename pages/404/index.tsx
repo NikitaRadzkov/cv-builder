@@ -2,8 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
 
-import { HeaderNavbar } from '@component';
-
 import styles from './style.module.scss';
 
 export default function Custom404() {
@@ -12,7 +10,6 @@ export default function Custom404() {
             <Head>
                 <title>404 Not Found</title>
             </Head>
-            <HeaderNavbar />
 
             <div className="container">
                 <div className={styles.insideErr}>

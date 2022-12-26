@@ -1,15 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
 
-import { HeaderNavbar } from '@component';
-
 import styles from './style.module.scss';
 
 export default function Home() {
     return (
         <div className={styles.homePage}>
-            <HeaderNavbar />
-
             <div className="container">
                 <section className={['row', styles.first].join(' ')}>
                     <div className={['col-md-6', styles.firstLeft].join(' ')}>
