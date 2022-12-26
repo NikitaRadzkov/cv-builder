@@ -3,24 +3,35 @@ import { actionTypes } from './actionTypes';
 const initialState = {
     userData: {
         name: '',
-        address: '',
+        language: 'English - B2',
         email: '',
         mobile: '',
         userData: '',
         profile: '',
         infoTitle: 'Personal info',
-        profileTitle: 'Profile',
-        workExperienceTitle: 'Work experience',
+        experienceTitle: 'QA Engineer with 3 years of experience.',
+        experience: '',
+        projectsTitle: 'Projects',
         educationTitle: 'Education',
-        skillsTitle: 'Skills',
+        education: 'Higher Education in Computer Science and Software Engineering',
+        languageProficiency: 'Language proficiency',
+        domainsTitle: 'Domains',
+        domains: 'Big Data, Management System, Web',
+        programmingLanguagesTitle: 'Programming languages',
+        programmingLanguages: '',
+        programmingTechnologiesTitle: 'Programming technologies',
+        programmingTechnologiesLeft: '',
+        programmingTechnologiesRight: '',
+        // skillsTitle: 'Skills',
         photo: 'images/nobody.jpg',
     },
     workExperience: [{ id: '1' }],
     education: [{ id: '1' }],
     skills: [{ id: '1' }],
+    professionalSkills: [{ id: '1' }],
     theme: {
-        color: '#03A9F4',
-        fontFamily: 'Source Sans Pro',
+        color: '#C3C2C4',
+        fontFamily: 'Mulish',
     },
     itemStatus: {
         picture: false,
@@ -29,6 +40,7 @@ const initialState = {
         workExperience: true,
         education: true,
         skills: true,
+        professionalSkills: true,
     },
 };
 
@@ -178,6 +190,62 @@ export default function core(state = initialState, action) {
             return {
                 ...state,
                 education: [...state.education, ...action.payload],
+            };
+
+        case actionTypes.ADD_NEW_PROFESSIONAL_SKILL:
+            if (!action.payload) return state;
+            return {
+                ...state,
+                professionalSkills: [
+                    ...state.professionalSkills,
+                    {
+                        ...action.payload,
+                    },
+                ],
+            };
+
+        case actionTypes.UPDATE_PROFESSIONAL_SKILL:
+            if (!action.payload) return state;
+
+            return Object.assign({}, state, {
+                professionalSkills: action.payload,
+            });
+
+        case actionTypes.UPDATE_PROFESSIONAL_SKILL_DATA:
+            if (!action.payload || !action.payloadId) return state;
+
+            const newProfessionalSkills = JSON.parse(JSON.stringify(state.professionalSkills));
+            const professionalSkillsIndex = state.professionalSkills
+                .map((itm) => {
+                    return itm.id;
+                })
+                .indexOf(action.payloadId);
+            if (professionalSkillsIndex > -1) {
+                Object.keys(action.payload).forEach(function (key) {
+                    newProfessionalSkills[professionalSkillsIndex][key] = action.payload[key];
+                });
+            }
+            return {
+                ...state,
+                professionalSkills: [...newProfessionalSkills],
+            };
+
+        case actionTypes.DELETE_PROFESSIONAL_SKILL_DATA:
+            if (!action.payload) return state;
+
+            let newProfSkills = JSON.parse(JSON.stringify(state.professionalSkills));
+            newProfSkills = state.professionalSkills.filter(({ id }) => id !== action.payload);
+            return {
+                ...state,
+                professionalSkills: [...newProfSkills],
+            };
+
+        case actionTypes.ADD_DELETED_PROFESSIONAL_SKILL_ITEM:
+            if (!action.payload) return state;
+
+            return {
+                ...state,
+                professionalSkills: [...state.professionalSkills, ...action.payload],
             };
 
         case actionTypes.ADD_NEW_SKILL:

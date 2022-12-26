@@ -40,6 +40,9 @@ export const addNewWorkExperience = () => {
         id,
         date: '',
         jobTitle: '',
+        projectRoles: 'Project roles',
+        period: 'Period',
+        responsibilities: 'Responsibilities & achievements',
         companyName: '',
         companyText: '',
         experienceText: '',
@@ -73,7 +76,7 @@ export const addDeletedWorkExperienceItem = (data) => {
     };
 };
 
-export const addEducation = () => {
+export const addAdditionalSkill = () => {
     const id = Util.randomId();
     const data = {
         id,
@@ -87,7 +90,7 @@ export const addEducation = () => {
     };
 };
 
-export const updateEducation = (data) => {
+export const updateAdditionalSkill = (data) => {
     return {
         type: actionTypes.UPDATE_EDUCATION,
         payload: data,
@@ -102,7 +105,7 @@ export const updateEducationData = (id, data) => {
     };
 };
 
-export const deleteEducationData = (id) => {
+export const deleteAdditionalSkill = (id) => {
     return {
         type: actionTypes.DELETE_EDUCATION_DATA,
         payload: id,
@@ -112,6 +115,51 @@ export const deleteEducationData = (id) => {
 export const addDeletedEducationItem = (data) => {
     return {
         type: actionTypes.ADD_DELETED_WORK_EDUCATION_ITEM,
+        payload: data,
+    };
+};
+
+export const addProfessionalSkill = () => {
+    const id = Util.randomId();
+    const data = {
+        id,
+        title: '',
+        skill: '',
+        experienceYear: '',
+        lastUsed: '',
+    };
+
+    return {
+        type: actionTypes.ADD_NEW_PROFESSIONAL_SKILL,
+        payload: data,
+    };
+};
+
+export const updateProfessionalSkill = (data) => {
+    return {
+        type: actionTypes.UPDATE_PROFESSIONAL_SKILL,
+        payload: data,
+    };
+};
+
+export const updateProfessionalSkillData = (id, data) => {
+    return {
+        type: actionTypes.UPDATE_PROFESSIONAL_SKILL_DATA,
+        payloadId: id,
+        payload: data,
+    };
+};
+
+export const deleteProfessionalSkill = (id) => {
+    return {
+        type: actionTypes.DELETE_PROFESSIONAL_SKILL_DATA,
+        payload: id,
+    };
+};
+
+export const addDeletedProfessionalSkillItem = (data) => {
+    return {
+        type: actionTypes.ADD_DELETED_PROFESSIONAL_SKILL_ITEM,
         payload: data,
     };
 };
@@ -164,6 +212,7 @@ export const exportUserData = () => {
         const workExperience = getState().workExperience;
         const education = getState().education;
         const skills = getState().skills;
+        const professionalSkills = getState().professionalSkills;
         const theme = getState().theme;
         const itemStatus = getState().itemStatus;
 
@@ -173,6 +222,7 @@ export const exportUserData = () => {
             workExperience,
             education,
             skills,
+            professionalSkills,
             theme,
             itemStatus,
         };
@@ -187,8 +237,9 @@ export const importUserData = (data) => {
 
     appStore.dispatch(updateUserData(obj.userData));
     appStore.dispatch(updateWorkExperience(obj.workExperience));
-    appStore.dispatch(updateEducation(obj.education));
+    appStore.dispatch(updateAdditionalSkill(obj.education));
     appStore.dispatch(updateSkill(obj.skills));
+    appStore.dispatch(updateProfessionalSkill(obj.professionalSkills));
     appStore.dispatch(updateTheme(obj.theme));
     appStore.dispatch(updateItemStatus(obj.itemStatus));
 };
