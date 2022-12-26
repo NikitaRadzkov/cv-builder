@@ -11,7 +11,6 @@
 ### Run Development Mode
 This resume builder created by `React` and `Next js`
 
-Use node 14
     
 ```
 yarn dev
