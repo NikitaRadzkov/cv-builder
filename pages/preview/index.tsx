@@ -13,108 +13,108 @@ import { Loading } from '@component';
 import { appStore } from '../../src/redux/store';
 
 interface TProps {
-    theme: {
-        color: string;
-        fontFamily: string;
-    };
-    itemStatus: {
-        [key: string]: boolean;
-    };
-    userData: {
-        [key: string]: string;
-    };
+  theme: {
+    color: string;
+    fontFamily: string;
+  };
+  itemStatus: {
+    [key: string]: boolean;
+  };
+  userData: {
+    [key: string]: string;
+  };
 }
 interface TState {
-    exportStatus: any;
-    gifGenerateStatus: boolean;
-    // exportStatus: Boolean | string | null
+  exportStatus: any;
+  gifGenerateStatus: boolean;
+  // exportStatus: Boolean | string | null
 }
 
 class Home extends React.Component<TProps, TState> {
-    constructor(props: TProps) {
-        super(props);
-        this.state = {
-            exportStatus: false,
-            gifGenerateStatus: false,
-        };
+  constructor(props: TProps) {
+    super(props);
+    this.state = {
+      exportStatus: false,
+      gifGenerateStatus: false,
+    };
+  }
+
+  componentDidMount() {
+    const exportStatus = Util.getQueryString(window.location, 'export');
+    this.setState({ exportStatus });
+
+    const data = window.location.hash.substr(1);
+    if (exportStatus === 'true' && data) {
+      importUserData(JSON.parse(decodeURIComponent(data)));
     }
+  }
 
-    componentDidMount() {
-        const exportStatus = Util.getQueryString(window.location, 'export');
-        this.setState({ exportStatus });
+  _downloadPDFBtnPress = async () => {
+    const { userData } = this.props;
+    const data = appStore.dispatch(exportUserData());
+    const fileName = `CV-${userData.name}.pdf`;
 
-        const data = window.location.hash.substr(1);
-        if (exportStatus === 'true' && data) {
-            importUserData(JSON.parse(decodeURIComponent(data)));
-        }
-    }
+    this.setState({ gifGenerateStatus: true });
 
-    _downloadPDFBtnPress = async () => {
-        const { userData } = this.props;
-        const data = appStore.dispatch(exportUserData());
-        const fileName = `CV-${userData.name}.pdf`;
-
-        this.setState({ gifGenerateStatus: true });
-
-        const req = {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        };
-
-        const res = await fetch(`https://innowise-cv-builder.netlify.app/api/download`, req);
-        const blob = await res.blob();
-        this.setState({ gifGenerateStatus: false });
-        download(blob, fileName);
+    const req = {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
     };
 
-    render() {
-        return (
+    const res = await fetch(`https://innowise-cv-builder.netlify.app/api/download`, req);
+    const blob = await res.blob();
+    this.setState({ gifGenerateStatus: false });
+    download(blob, fileName);
+  };
+
+  render() {
+    return (
+      <>
+        <Head>
+          <title>preview</title>
+        </Head>
+        <div style={{ fontFamily: this.props.theme.fontFamily }}>
+          {this.state.exportStatus !== 'true' && (
             <>
-                <Head>
-                    <title>preview</title>
-                </Head>
-                <div style={{ fontFamily: this.props.theme.fontFamily }}>
-                    {this.state.exportStatus !== 'true' && (
-                        <>
-                            <div className={styles.bgLayer} />
+              <div className={styles.bgLayer} />
 
-                            <div className={styles.topNav}>
-                                <div className={styles.left}>
-                                    <i className="material-icons" onClick={() => Router.back()}>
-                                        keyboard_backspace
-                                    </i>
-                                </div>
-
-                                <div className={['verticalCenter', styles.right].join(' ')}>
-                                    <span onClick={this._downloadPDFBtnPress}>Download as PDF</span>
-                                </div>
-                            </div>
-                        </>
-                    )}
-
-                    <div className={[styles.container, this.state.exportStatus !== 'true' && styles.previewContainer].join(' ')}>
-                        <One />
-                    </div>
-
-                    <Loading show={this.state.gifGenerateStatus} />
+              <div className={styles.topNav}>
+                <div className={styles.left}>
+                  <i className="material-icons" onClick={() => Router.back()}>
+                    keyboard_backspace
+                  </i>
                 </div>
+
+                <div className={['verticalCenter', styles.right].join(' ')}>
+                  <span onClick={this._downloadPDFBtnPress}>Download as PDF</span>
+                </div>
+              </div>
             </>
-        );
-    }
+          )}
+
+          <div className={[styles.container, this.state.exportStatus !== 'true' && styles.previewContainer].join(' ')}>
+            <One />
+          </div>
+
+          <Loading show={this.state.gifGenerateStatus} />
+        </div>
+      </>
+    );
+  }
 }
 
 const mapStateToProps = (store: any) => ({
-    theme: store.theme,
-    itemStatus: store.itemStatus,
-    userData: store.userData,
+  theme: store.theme,
+  itemStatus: store.itemStatus,
+  userData: store.userData,
 });
 
 const mapDispatchToProps = () => ({
-    importUserData,
+  importUserData,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

@@ -22,38 +22,38 @@ import '../../src/theme/main.scss';
 import { Colors } from '@colors';
 
 const theme = {
-    colors: {
-        ...Colors,
-    },
+  colors: {
+    ...Colors,
+  },
 };
 
 class MyApp extends App {
-    constructor(props: any) {
-        super(props);
-        this.persistor = persistStore(props.reduxStore);
-    }
+  constructor(props: any) {
+    super(props);
+    this.persistor = persistStore(props.reduxStore);
+  }
 
-    persistor: any;
+  persistor: any;
 
-    render() {
-        const { Component, pageProps } = this.props;
-        return (
-            <>
-                <Head>
-                    <title>free resume builder</title>
-                    <meta name="description" content="A modern real time design and 100% free resume builder."></meta>
-                </Head>
-                <Provider store={appStore}>
-                    <PersistGate loading={<Component {...pageProps} />} persistor={this.persistor}>
-                        <ThemeProvider theme={theme}>
-                            <Component {...pageProps} />
-                        </ThemeProvider>
-                    </PersistGate>
-                </Provider>
-                <ToastContainer />
-            </>
-        );
-    }
+  render() {
+    const { Component, pageProps } = this.props;
+    return (
+      <>
+        <Head>
+          <title>free resume builder</title>
+          <meta name="description" content="A modern real time design and 100% free resume builder."></meta>
+        </Head>
+        <Provider store={appStore}>
+          <PersistGate loading={<Component {...pageProps} />} persistor={this.persistor}>
+            <ThemeProvider theme={theme}>
+              <Component {...pageProps} />
+            </ThemeProvider>
+          </PersistGate>
+        </Provider>
+        <ToastContainer />
+      </>
+    );
+  }
 }
 
 export default withReduxStore(MyApp);

@@ -10,50 +10,50 @@ import { One } from '@template';
 import Head from 'next/head';
 // import { TProps, TState } from "./indexType";
 interface TProps {
-    theme: {
-        color: string;
-        fontFamily: string;
-    };
-    itemStatus: {
-        [key: string]: boolean;
-    };
-    userData: {
-        [key: string]: string;
-    };
+  theme: {
+    color: string;
+    fontFamily: string;
+  };
+  itemStatus: {
+    [key: string]: boolean;
+  };
+  userData: {
+    [key: string]: string;
+  };
 }
 
 class Home extends React.Component<TProps> {
-    constructor(props: TProps) {
-        super(props);
-        this.state = {};
-    }
+  constructor(props: TProps) {
+    super(props);
+    this.state = {};
+  }
 
-    render() {
-        return (
-            <>
-                <Head>
-                    <title>resume builder</title>
-                </Head>
-                <div style={{ fontFamily: this.props.theme.fontFamily }}>
-                    <div className={styles.loading} style={{ background: this.props.theme.color }}>
-                        <div className={styles.loading_gradient}></div>
-                    </div>
+  render() {
+    return (
+      <>
+        <Head>
+          <title>resume builder</title>
+        </Head>
+        <div style={{ fontFamily: this.props.theme.fontFamily }}>
+          <div className={styles.loading} style={{ background: this.props.theme.color }}>
+            <div className={styles.loading_gradient}></div>
+          </div>
 
-                    <TopNavbar itemStatus={this.props.itemStatus} theme={this.props.theme} userData={this.props.userData} />
+          <TopNavbar itemStatus={this.props.itemStatus} theme={this.props.theme} userData={this.props.userData} />
 
-                    <div className={styles.container}>
-                        <One />
-                    </div>
-                </div>
-            </>
-        );
-    }
+          <div className={styles.container}>
+            <One />
+          </div>
+        </div>
+      </>
+    );
+  }
 }
 
 const mapStateToProps = (store: any) => ({
-    theme: store.theme,
-    userData: store.userData,
-    itemStatus: store.itemStatus,
+  theme: store.theme,
+  userData: store.userData,
+  itemStatus: store.itemStatus,
 });
 
 const mapDispatchToProps = () => ({});
