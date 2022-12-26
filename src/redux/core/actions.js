@@ -1,5 +1,4 @@
 import { actionTypes } from './actionTypes';
-import { AppAPI } from '../../lib';
 import Util from '../../lib/Util';
 import AppConfig from '../../constant/config';
 import ApiConst from '../../constant/api';
@@ -7,261 +6,261 @@ import ApiConst from '../../constant/api';
 import { appStore } from '../store';
 
 export const updateUserData = (data) => {
-    return {
-        type: actionTypes.UPDATE_USER_DATA,
-        payload: data,
-    };
+  return {
+    type: actionTypes.UPDATE_USER_DATA,
+    payload: data,
+  };
 };
 
 export const updateTheme = (data) => {
-    return {
-        type: actionTypes.UPDATE_THEME,
-        payload: data,
-    };
+  return {
+    type: actionTypes.UPDATE_THEME,
+    payload: data,
+  };
 };
 
 export const updateItemStatus = (data) => {
-    return {
-        type: actionTypes.UPDATE_ITEM_STATUS,
-        payload: data,
-    };
+  return {
+    type: actionTypes.UPDATE_ITEM_STATUS,
+    payload: data,
+  };
 };
 
 export const updateWorkExperience = (data) => {
-    return {
-        type: actionTypes.UPDATE_WORK_EXPERIENCE,
-        payload: data,
-    };
+  return {
+    type: actionTypes.UPDATE_WORK_EXPERIENCE,
+    payload: data,
+  };
 };
 
 export const addNewWorkExperience = () => {
-    const id = Util.randomId();
-    const data = {
-        id,
-        date: '',
-        jobTitle: '',
-        projectRoles: 'Project roles',
-        period: 'Period',
-        responsibilities: 'Responsibilities & achievements',
-        companyName: '',
-        companyText: '',
-        experienceText: '',
-    };
+  const id = Util.randomId();
+  const data = {
+    id,
+    date: '',
+    jobTitle: '',
+    projectRoles: 'Project roles',
+    period: 'Period',
+    responsibilities: 'Responsibilities & achievements',
+    companyName: '',
+    companyText: '',
+    experienceText: '',
+  };
 
-    return {
-        type: actionTypes.ADD_NEW_WORK_EXPERIENCE,
-        payload: data,
-    };
+  return {
+    type: actionTypes.ADD_NEW_WORK_EXPERIENCE,
+    payload: data,
+  };
 };
 
 export const updateWorkExperienceData = (id, data) => {
-    return {
-        type: actionTypes.UPDATE_WORK_EXPERIENCE_DATA,
-        payloadId: id,
-        payload: data,
-    };
+  return {
+    type: actionTypes.UPDATE_WORK_EXPERIENCE_DATA,
+    payloadId: id,
+    payload: data,
+  };
 };
 
 export const deleteWorkExperienceData = (id) => {
-    return {
-        type: actionTypes.DELETE_WORK_EXPERIENCE_DATA,
-        payload: id,
-    };
+  return {
+    type: actionTypes.DELETE_WORK_EXPERIENCE_DATA,
+    payload: id,
+  };
 };
 
 export const addDeletedWorkExperienceItem = (data) => {
-    return {
-        type: actionTypes.ADD_DELETED_WORK_EXPERIENCE_ITEM,
-        payload: data,
-    };
+  return {
+    type: actionTypes.ADD_DELETED_WORK_EXPERIENCE_ITEM,
+    payload: data,
+  };
 };
 
 export const addAdditionalSkill = () => {
-    const id = Util.randomId();
-    const data = {
-        id,
-        date: '',
-        title: '',
-    };
+  const id = Util.randomId();
+  const data = {
+    id,
+    date: '',
+    title: '',
+  };
 
-    return {
-        type: actionTypes.ADD_NEW_EDUCATION,
-        payload: data,
-    };
+  return {
+    type: actionTypes.ADD_NEW_EDUCATION,
+    payload: data,
+  };
 };
 
 export const updateAdditionalSkill = (data) => {
-    return {
-        type: actionTypes.UPDATE_EDUCATION,
-        payload: data,
-    };
+  return {
+    type: actionTypes.UPDATE_EDUCATION,
+    payload: data,
+  };
 };
 
 export const updateEducationData = (id, data) => {
-    return {
-        type: actionTypes.UPDATE_EDUCATION_DATA,
-        payloadId: id,
-        payload: data,
-    };
+  return {
+    type: actionTypes.UPDATE_EDUCATION_DATA,
+    payloadId: id,
+    payload: data,
+  };
 };
 
 export const deleteAdditionalSkill = (id) => {
-    return {
-        type: actionTypes.DELETE_EDUCATION_DATA,
-        payload: id,
-    };
+  return {
+    type: actionTypes.DELETE_EDUCATION_DATA,
+    payload: id,
+  };
 };
 
 export const addDeletedEducationItem = (data) => {
-    return {
-        type: actionTypes.ADD_DELETED_WORK_EDUCATION_ITEM,
-        payload: data,
-    };
+  return {
+    type: actionTypes.ADD_DELETED_WORK_EDUCATION_ITEM,
+    payload: data,
+  };
 };
 
 export const addProfessionalSkill = () => {
-    const id = Util.randomId();
-    const data = {
-        id,
-        title: '',
-        skill: '',
-        experienceYear: '',
-        lastUsed: '',
-    };
+  const id = Util.randomId();
+  const data = {
+    id,
+    title: '',
+    skill: '',
+    experienceYear: '',
+    lastUsed: '',
+  };
 
-    return {
-        type: actionTypes.ADD_NEW_PROFESSIONAL_SKILL,
-        payload: data,
-    };
+  return {
+    type: actionTypes.ADD_NEW_PROFESSIONAL_SKILL,
+    payload: data,
+  };
 };
 
 export const updateProfessionalSkill = (data) => {
-    return {
-        type: actionTypes.UPDATE_PROFESSIONAL_SKILL,
-        payload: data,
-    };
+  return {
+    type: actionTypes.UPDATE_PROFESSIONAL_SKILL,
+    payload: data,
+  };
 };
 
 export const updateProfessionalSkillData = (id, data) => {
-    return {
-        type: actionTypes.UPDATE_PROFESSIONAL_SKILL_DATA,
-        payloadId: id,
-        payload: data,
-    };
+  return {
+    type: actionTypes.UPDATE_PROFESSIONAL_SKILL_DATA,
+    payloadId: id,
+    payload: data,
+  };
 };
 
 export const deleteProfessionalSkill = (id) => {
-    return {
-        type: actionTypes.DELETE_PROFESSIONAL_SKILL_DATA,
-        payload: id,
-    };
+  return {
+    type: actionTypes.DELETE_PROFESSIONAL_SKILL_DATA,
+    payload: id,
+  };
 };
 
 export const addDeletedProfessionalSkillItem = (data) => {
-    return {
-        type: actionTypes.ADD_DELETED_PROFESSIONAL_SKILL_ITEM,
-        payload: data,
-    };
+  return {
+    type: actionTypes.ADD_DELETED_PROFESSIONAL_SKILL_ITEM,
+    payload: data,
+  };
 };
 
 export const addSkill = () => {
-    const id = Util.randomId();
-    const data = {
-        id,
-        title: '',
-    };
+  const id = Util.randomId();
+  const data = {
+    id,
+    title: '',
+  };
 
-    return {
-        type: actionTypes.ADD_NEW_SKILL,
-        payload: data,
-    };
+  return {
+    type: actionTypes.ADD_NEW_SKILL,
+    payload: data,
+  };
 };
 
 export const updateSkill = (data) => {
-    return {
-        type: actionTypes.UPDATE_SKILL,
-        payload: data,
-    };
+  return {
+    type: actionTypes.UPDATE_SKILL,
+    payload: data,
+  };
 };
 
 export const updateSkillData = (id, data) => {
-    return {
-        type: actionTypes.UPDATE_SKILL_DATA,
-        payloadId: id,
-        payload: data,
-    };
+  return {
+    type: actionTypes.UPDATE_SKILL_DATA,
+    payloadId: id,
+    payload: data,
+  };
 };
 
 export const deleteSkillData = (id) => {
-    return {
-        type: actionTypes.DELETE_SKILL_DATA,
-        payload: id,
-    };
+  return {
+    type: actionTypes.DELETE_SKILL_DATA,
+    payload: id,
+  };
 };
 
 export const addDeletedSkillItem = (data) => {
-    return {
-        type: actionTypes.ADD_DELETED_WORK_SKILL_ITEM,
-        payload: data,
-    };
+  return {
+    type: actionTypes.ADD_DELETED_WORK_SKILL_ITEM,
+    payload: data,
+  };
 };
 
 export const exportUserData = () => {
-    return (dispatch, getState) => {
-        const userData = getState().userData;
-        const workExperience = getState().workExperience;
-        const education = getState().education;
-        const skills = getState().skills;
-        const professionalSkills = getState().professionalSkills;
-        const theme = getState().theme;
-        const itemStatus = getState().itemStatus;
+  return (dispatch, getState) => {
+    const userData = getState().userData;
+    const workExperience = getState().workExperience;
+    const education = getState().education;
+    const skills = getState().skills;
+    const professionalSkills = getState().professionalSkills;
+    const theme = getState().theme;
+    const itemStatus = getState().itemStatus;
 
-        let data = [];
-        data = {
-            userData,
-            workExperience,
-            education,
-            skills,
-            professionalSkills,
-            theme,
-            itemStatus,
-        };
-
-        return data;
+    let data = [];
+    data = {
+      userData,
+      workExperience,
+      education,
+      skills,
+      professionalSkills,
+      theme,
+      itemStatus,
     };
+
+    return data;
+  };
 };
 
 export const importUserData = (data) => {
-    // const obj = JSON.parse(data)
-    const obj = data;
+  // const obj = JSON.parse(data)
+  const obj = data;
 
-    appStore.dispatch(updateUserData(obj.userData));
-    appStore.dispatch(updateWorkExperience(obj.workExperience));
-    appStore.dispatch(updateAdditionalSkill(obj.education));
-    appStore.dispatch(updateSkill(obj.skills));
-    appStore.dispatch(updateProfessionalSkill(obj.professionalSkills));
-    appStore.dispatch(updateTheme(obj.theme));
-    appStore.dispatch(updateItemStatus(obj.itemStatus));
+  appStore.dispatch(updateUserData(obj.userData));
+  appStore.dispatch(updateWorkExperience(obj.workExperience));
+  appStore.dispatch(updateAdditionalSkill(obj.education));
+  appStore.dispatch(updateSkill(obj.skills));
+  appStore.dispatch(updateProfessionalSkill(obj.professionalSkills));
+  appStore.dispatch(updateTheme(obj.theme));
+  appStore.dispatch(updateItemStatus(obj.itemStatus));
 };
 
 export const uploadImageAction = (image) => {
-    return () =>
-        new Promise((resolve, reject) => {
-            const formData = new FormData();
-            formData.append('image', image);
-            fetch(ApiConst.imgurHostname, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    Authorization: `Client-ID ${AppConfig.imgurClientId}`,
-                },
-            })
-                .then((response) => response.json())
-                .then((res) => {
-                    return resolve(res);
-                })
-                .catch((err) => {
-                    return reject(err);
-                });
+  return () =>
+    new Promise((resolve, reject) => {
+      const formData = new FormData();
+      formData.append('image', image);
+      fetch(ApiConst.imgurHostname, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          Authorization: `Client-ID ${AppConfig.imgurClientId}`,
+        },
+      })
+        .then((response) => response.json())
+        .then((res) => {
+          return resolve(res);
+        })
+        .catch((err) => {
+          return reject(err);
         });
+    });
 };

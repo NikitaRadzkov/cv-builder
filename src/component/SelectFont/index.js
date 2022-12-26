@@ -8,38 +8,38 @@ import { updateTheme } from '../../redux/core/actions';
 const fonts = ['Mulish', 'Josefin Sans', 'Calibri', 'Cambria', 'Garamond', 'Georgia'];
 
 class Select extends React.Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.state = {
-            value: appStore.getState().theme.fontFamily,
-        };
-    }
-
-    _onChange = (e) => {
-        const value = e && e.target && e.target.value;
-        const data = {
-            fontFamily: value,
-        };
-        this.setState({ value });
-        appStore.dispatch(updateTheme(data));
+    this.state = {
+      value: appStore.getState().theme.fontFamily,
     };
-    render() {
-        return (
-            <div className={styles.selectBoxForm}>
-                <select value={this.state.value} onChange={(e) => this._onChange(e)} ref={(c) => (this.mySelect = c)}>
-                    {fonts.map((item, index) => {
-                        return (
-                            <option value={item} key={index} style={{ fontFamily: item }}>
-                                {item}
-                            </option>
-                        );
-                    })}
-                </select>
-                <i className={'material-icons ' + styles.selectDown}>arrow_drop_down</i>
-            </div>
-        );
-    }
+  }
+
+  _onChange = (e) => {
+    const value = e && e.target && e.target.value;
+    const data = {
+      fontFamily: value,
+    };
+    this.setState({ value });
+    appStore.dispatch(updateTheme(data));
+  };
+  render() {
+    return (
+      <div className={styles.selectBoxForm}>
+        <select value={this.state.value} onChange={(e) => this._onChange(e)} ref={(c) => (this.mySelect = c)}>
+          {fonts.map((item, index) => {
+            return (
+              <option value={item} key={index} style={{ fontFamily: item }}>
+                {item}
+              </option>
+            );
+          })}
+        </select>
+        <i className={'material-icons ' + styles.selectDown}>arrow_drop_down</i>
+      </div>
+    );
+  }
 }
 
 // Select.propTypes = {
