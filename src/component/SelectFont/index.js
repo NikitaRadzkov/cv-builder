@@ -5,7 +5,7 @@ import styles from './select.module.scss';
 import { appStore } from '../../redux/store';
 import { updateTheme } from '../../redux/core/actions';
 
-const fonts = ['Source Sans Pro', 'Josefin Sans', 'Calibri', 'Cambria', 'Garamond', 'Georgia'];
+const fonts = ['Mulish', 'Josefin Sans', 'Calibri', 'Cambria', 'Garamond', 'Georgia'];
 
 class Select extends React.Component {
     constructor(props) {

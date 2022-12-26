@@ -99,11 +99,12 @@ body {
 }
 
 .Toastify__toast.Toastify__toast--default {
+    border-radius: 10px;
     background: #222;
 }
 
 .Toastify__progress-bar.Toastify__progress-bar--default {
-    background: #000;
+    background: rgb(166, 166, 166);
 }
 
 .Toastify__close-button--default {

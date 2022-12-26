@@ -1,16 +1,14 @@
 import React from 'react';
-import { toast, Slide, Zoom, Flip, Bounce } from 'react-toastify';
-// import ToastUndo from '../components/ToastUndo';
+import { toast, Slide } from 'react-toastify';
 import { ToastUndo } from '@component';
 
 const config = {
     position: 'bottom-left',
     autoClose: 7000,
-    // hideProgressBar: true,
     closeOnClick: true,
     pauseOnHover: true,
     draggable: true,
-    transition: Flip,
+    transition: Slide,
 };
 
 const Toast = {

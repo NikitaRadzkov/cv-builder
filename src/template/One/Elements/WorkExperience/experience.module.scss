@@ -1,63 +1,46 @@
 @import '../../../../theme/colors';
 
-.workDate {
-    font-size: 14px;
-    width: fit-content;
-    padding: 0 6px 0 0;
+.title {
+    font-weight: bold;
 }
 
-.workTitle {
-    font-weight: bold;
-    font-size: 17px;
+.position {
+    margin-bottom: 10px;
 }
+
+.workDate {
+    width: fit-content;
+    padding: 0 6px 0 0;
+    margin-bottom: 10px;
+}
+
 .workCompany {
+    text-transform: uppercase;
+    color: #C63031;
     font-weight: bold;
     font-size: 16px;
     margin-top: -4px;
     display: block;
 }
 
-.companyExplain {
-    font-size: 14px;
-    color: #767373;
-}
-
 .workBox {
     flex-direction: row;
     display: flex;
     background: #fff;
-    padding: 0 5px;
 }
 
 .leftWork {
     flex: 1;
 }
-.RightWork {
-    flex: 3;
-    border-left: 2px solid #dadada;
+.rightWork {
+    flex: 1;
+    border-left: 1px solid #C63031;
     padding: 0 0 0 15px;
 }
 .workExperience .workBox:nth-child(n + 2) {
     padding-top: 5px;
 }
 
-.workDot {
-    width: 16px;
-    height: 18px;
-    background: #fff;
-    position: absolute;
-    margin: 0 0 0 -24px;
-}
-.workDot:after {
-    width: 10px;
-    height: 10px;
-    content: '';
-    display: block;
-    border-radius: 100%;
-    margin: 3px auto;
-    background: var(--circle-color);
-    opacity: 0.7;
-}
 .experienceText {
     padding: 0 0 10px 20px;
 }

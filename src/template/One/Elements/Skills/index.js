@@ -36,7 +36,7 @@ function Skills(props) {
             removeitem={(e) => _removeItem(e, data)}
             renderItem={(item) => (
                 <div style={{ background: '#fff' }}>
-                    <Text value={item.title} statename="skills.title" stateid={item.id} placeholder="React Native" />
+                    <Text value={item.title} statename="skills.title" stateid={item.id} placeholder="Jira" />
                 </div>
             )}
         />

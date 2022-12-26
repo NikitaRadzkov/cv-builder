@@ -1,7 +1,10 @@
 @import '../../theme/colors';
 
 .insideCon {
-    padding: 60px;
+    padding: 40px 30px 50px 30px;
+    line-height: 1.15;
+    font-size: 12pt;
+    color: #353535
 }
 
 .box {
@@ -10,18 +13,51 @@
 
 .name {
     font-weight: bold;
-    font-size: 24px;
+    font-size: 24pt;
     line-height: 28px;
 }
 
 .position {
-    font-size: 12px;
     text-transform: uppercase;
 }
 
 .title {
     font-weight: bold;
-    font-size: 20px;
+}
+
+.mainTitle {
+    font-size: 24pt;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.section {
+    display: flex;
+    justify-content: space-between;
+}
+
+.leftSection {
+    max-width: 180px;
+    min-width: 180px;
+    line-height: 1.15;
+    align-self: start;
+}
+
+.profile {
+    min-width: 450px;
+    max-width: 450px;
+}
+
+.vl {
+    border-left: 1px solid #c63031;
+    margin: 0 20px 0 10px;
+}
+
+.programmingTechnologies {
+    justify-content: space-between;
+    display: flex;
+    min-width: 250px;
+    max-width: 270px;
 }
 
 .image {

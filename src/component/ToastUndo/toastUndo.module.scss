@@ -2,6 +2,8 @@
 
 .toastBox {
     display: flex;
+    align-items: center;
+    border-radius: 10px;
 }
 
 .toastMessage {
@@ -13,13 +15,15 @@
 
 .toastUndoBtn {
     flex: 1;
+    border-radius: 10px;
     background: #000;
     text-align: center;
-    padding: 5px 10px;
+    padding: 10px;
     color: #fff;
     font-size: 15px;
+    margin-right: 5px;
 }
 
 .toastUndoBtn:hover {
-    background: #032d4f;
+    background: #c63031;
 }

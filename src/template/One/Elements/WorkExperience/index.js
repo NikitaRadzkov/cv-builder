@@ -37,25 +37,6 @@ function WorkExperience(props) {
                 <div className={styles.workBox}>
                     <div className={styles.leftWork}>
                         <Text
-                            value={item.date}
-                            statename="workExperience.date"
-                            stateid={item.id}
-                            placeholder="May 2018 – May 2019"
-                            customclass={styles.workDate}
-                            tag="div"
-                        />
-                    </div>
-                    <div className={styles.RightWork}>
-                        <div className={styles.workDot} style={{ '--circle-color': color }} />
-                        <Text
-                            value={item.jobTitle}
-                            statename="workExperience.jobTitle"
-                            stateid={item.id}
-                            placeholder="React Native Developer"
-                            customclass={styles.workTitle}
-                            tag="div"
-                        />
-                        <Text
                             value={item.companyName}
                             statename="workExperience.companyName"
                             stateid={item.id}
@@ -67,15 +48,51 @@ function WorkExperience(props) {
                             value={item.companyText}
                             statename="workExperience.companyText"
                             stateid={item.id}
-                            customclass={styles.companyExplain}
                             placeholder="Facebook, Inc. is an American social media and technology company based in Menlo Park, California."
+                        />
+                    </div>
+                    <div className={styles.rightWork}>
+                        <Text
+                            value={item.projectRoles}
+                            statename="workExperience.projectRoles"
+                            placeholder="Project roles"
+                            customclass={styles.title}
+                            tag="div"
+                        />
+                        <Text
+                            value={item.jobTitle}
+                            statename="workExperience.jobTitle"
+                            stateid={item.id}
+                            customclass={styles.position}
+                            placeholder="QA Engineer"
+                        />
+                        <Text
+                            value={item.period}
+                            statename="workExperience.period"
+                            placeholder="Period"
+                            customclass={styles.title}
+                            tag="div"
+                        />
+                        <Text
+                            value={item.date}
+                            statename="workExperience.date"
+                            stateid={item.id}
+                            placeholder="May 2021 – till now"
+                            customclass={styles.workDate}
+                            tag="div"
+                        />
+                        <Text
+                            value={item.responsibilities}
+                            statename="workExperience.responsibilities"
+                            placeholder="Responsibilities & achievements"
+                            customclass={styles.title}
+                            tag="div"
                         />
                         <div className={styles.experienceText}>
                             <Text
                                 value={item.experienceText}
                                 statename="workExperience.experienceText"
                                 stateid={item.id}
-                                customclass={styles.companyExplain}
                                 placeholder="- your experience..."
                             />
                         </div>

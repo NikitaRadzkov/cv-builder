@@ -32,7 +32,7 @@ class TopNavbar extends React.Component<TProps, TState> {
             gifGenerateStatus: false,
         };
 
-        this.fonts = ['Source Sans Pro', 'Josefin Sans', 'Calibri', 'Cambria', 'Garamond', 'Georgia'];
+        this.fonts = ['Mulish', 'Josefin Sans', 'Calibri', 'Cambria', 'Garamond', 'Georgia'];
     }
 
     fonts: string[];
@@ -240,6 +240,12 @@ class TopNavbar extends React.Component<TProps, TState> {
                         {this._switchBtn('skills')}
                         <span className={styles.sectionItemText} onClick={() => this._switchBtnClick('skills')}>
                             Skills
+                        </span>
+                    </div>
+                    <div className={styles.sectionItem}>
+                        {this._switchBtn('professionalSkills')}
+                        <span className={styles.sectionItemText} onClick={() => this._switchBtnClick('professionalSkills')}>
+                            Professional Skills
                         </span>
                     </div>
                 </div>
