@@ -94,7 +94,7 @@ class TopNavbar extends React.Component<TProps, TState> {
             body: JSON.stringify(data),
         };
 
-        const res = await fetch(`${process.env.HOST}/api/download`, req);
+        const res = await fetch(`https://innowise-cv-builder.netlify.app/api/download`, req);
         const blob = await res.blob();
         this.setState({ gifGenerateStatus: false });
         download(blob, fileName);
